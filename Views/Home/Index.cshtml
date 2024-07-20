@@ -1,0 +1,157 @@
+﻿@model MACHINE_TEST_PRACTICE.Models.UserModel 
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    @using (Html.BeginForm("AddOrUpdate", "Home",FormMethod.Post, new {enctype = "multipart/form-data"}))
+    {
+        @Html.HiddenFor(model => model.Id)
+        <section class="row" aria-labelledby="aspnetTitle">
+            <h1 id="title" class="mb-5">USER DETAILS</h1>
+            <h4 class="mb-2">User Form</h4>
+        </section>
+
+        <div class="row mb-2">
+            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+                <label>Full Name: </label>
+                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control w-100" })
+            </section>
+            <section class="col-md-4" aria-labelledby="librariesTitle">
+                <label>Email: </label>
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control w-100" })
+            </section>
+            <section class="col-md-4" aria-labelledby="hostingTitle">
+                <label>Phone: </label>
+                @Html.TextBoxFor(model => model.MobNo, new { @class = "form-control" })
+            </section>
+        </div>
+
+        <div class="row mb-2">
+            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+                <label>Date of Birth: </label>
+                @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control", @type = "date" })
+            </section>
+            <section class="col-md-4" aria-labelledby="librariesTitle">
+                <label>Country: </label>
+                @Html.TextBoxFor(model => model.CountryId, new { @class = "form-control" })
+            </section>
+            <section class="col-md-4" aria-labelledby="hostingTitle">
+                <label>State: </label>
+                @Html.TextBoxFor(model => model.StateId, new { @class = "form-control" })
+            </section>
+        </div>
+
+        @*<div class="row mb-2">
+                <div class="col-2">
+                    <label>Professional Skills: </label>
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+                            <label>Date of Birth: </label>
+
+                        </section>
+                        <section class="col-md-4" aria-labelledby="librariesTitle">
+                            <label>Country: </label>
+                            @Html.TextBoxFor(model => model.CountryId, new { @class = "form-control" })
+                        </section>
+                        <section class="col-md-4" aria-labelledby="hostingTitle">
+                            <label>State: </label>
+                            @Html.TextBoxFor(model => model.StateId, new { @class = "form-control" })
+                        </section>
+                    </div>
+                </div>
+            </div>*@
+
+        <div class="row mb-2">
+            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+                <label class="form-label">Upload Photo: </label>
+                @Html.TextBoxFor(model => model.ImageFile, new { @class = "form-control", @type = "file", @accept = "image/*", @name = "ImageFile"})
+            </section>
+            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+                @*<label>Professional Skill: </label>
+                @Html.TextBoxFor(model => model.ProfessionalSkill, new { @class = "form-control" })*@
+            </section>
+        </div>
+        <div class="row mb-2">
+            <button class="btn btn-secondary" type="submit">Submit</button>
+        </div>
+    }
+
+    <div class="mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Photo</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Mobile No</th>
+                    <th>Date of Birth</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>Professional Skill</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var items in ViewBag.UserDetailsList)
+                {
+                    <tr>
+                        <td>@items.Id</td>
+                        <td><img src="@Url.Content(items.Photo)" width="48" height="48" /></td>
+                        <td>@items.FullName</td>
+                        <td>@items.Email</td>
+                        <td>@items.MobNo</td>
+                        <td>@items.DateOfBirth.ToString("dd-MM-yyyy")</td>
+                        <td>@items.CountryName</td>
+                        <td>@items.StateName</td>
+                        <td>
+                            @{
+                                if (items.comm == true)
+                                {
+                                    <span>Communication, </span>
+                                }
+                                if (items.atwup == true)
+                                {
+                                    <span>Ability to work under pressure, </span>
+                                }
+                                if (items.dm == true)
+                                {
+                                    <span>Decision Making, </span>
+                                }
+                                if (items.tm == true)
+                                {
+                                    <span>Time Management, </span>
+                                }
+                                if (items.cr == true)
+                                {
+                                    <span>Conflict Resolution, </span>
+                                }
+                                if (items.lead == true)
+                                {
+                                    <span>Leadership, </span>
+                                }
+                                if (items.adapt == true)
+                                {
+                                    <span>Adaptability, </span>
+                                }
+                                if (items.sm == true)
+                                {
+                                    <span>Self-motivation,</span>
+                                }
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Index", new { id = items.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = items.Id })
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</main>
