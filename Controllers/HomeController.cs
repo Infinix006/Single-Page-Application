@@ -23,14 +23,15 @@ namespace MACHINE_TEST_PRACTICE.Controllers
 
         public ActionResult Index(UserModel userModel)
         {
-            if(userModel.Id == 0)
+            ViewBag.UserDetailsList = GetUserDetails();
+            ViewBag.CountryList = GetCountryList();
+
+            if (userModel.Id == 0)
             {
-                ViewBag.UserDetailsList = GetUserDetails();
                 return View();
             }
             else
             {
-                ViewBag.UserDetailsList = GetUserDetails();
                 using (sqlConnection = new SqlConnection(conn))
                 {
                     query = $"SELECT * FROM users WHERE userId = {userModel.Id}";
@@ -52,8 +53,15 @@ namespace MACHINE_TEST_PRACTICE.Controllers
                             Photo = Convert.ToString(row["photo"]),
                             CountryId = Convert.ToInt32(row["countryId"]),
                             StateId = Convert.ToInt32(row["stateId"]),
-/*                            ProfessionalSkill = Convert.ToString(row["professional_skill"])
-*/                        };
+                            comm = Convert.ToBoolean(row["comm"]),
+                            atwup = Convert.ToBoolean(row["atwup"]),
+                            dm = Convert.ToBoolean(row["dm"]),
+                            tm = Convert.ToBoolean(row["tm"]),
+                            sm = Convert.ToBoolean(row["sm"]),
+                            cr = Convert.ToBoolean(row["cr"]),
+                            lead = Convert.ToBoolean(row["lead"]),
+                            adapt = Convert.ToBoolean(row["adapt"]),
+                        };
                     }
                     return View(userModel);
 
@@ -105,62 +113,156 @@ namespace MACHINE_TEST_PRACTICE.Controllers
 
         [HttpPost]
         public ActionResult AddOrUpdate(UserModel user)
-        {            
-            if (user.Id == 0)
+        {
+            /*if (ModelState.IsValid)*/
             {
-                string fileName = Path.GetFileNameWithoutExtension(user.ImageFile.FileName);
-                string extension = Path.GetExtension(user.ImageFile.FileName);
-                fileName += DateTime.Now.ToString("yymmssfff") + extension;
-                user.Photo = "~/Content/images/" + fileName;
-                fileName = Path.Combine(Server.MapPath("~/Content/images/"), fileName);
-                user.ImageFile.SaveAs(fileName);
-
-                string query = "INSERT INTO users (FullName, Email, MOB_NO, DateOfBirth, Photo, CountryId, StateId, professional_skill) " +
-                                           "VALUES (@FullName, @Email, @MOB_NO, @DateOfBirth, @Photo, @CountryId, @StateId, @professional_skill)";
-                using (sqlConnection = new SqlConnection(conn))
+                if (user.Id == 0)
                 {
-                    sqlCommand = new SqlCommand(query,sqlConnection);
+                    string fileName = Path.GetFileNameWithoutExtension(user.ImageFile.FileName);
+                    string extension = Path.GetExtension(user.ImageFile.FileName);
+                    fileName += DateTime.Now.ToString("yymmssfff") + extension;
+                    user.Photo = "~/Content/images/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("~/Content/images/"), fileName);
+                    user.ImageFile.SaveAs(fileName);
 
-                    sqlCommand.Parameters.AddWithValue("@FullName", user.FullName);
-                    sqlCommand.Parameters.AddWithValue("@Email", user.Email);
-                    sqlCommand.Parameters.AddWithValue("@MOB_NO", user.MobNo);
-                    sqlCommand.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
-                    sqlCommand.Parameters.AddWithValue("@Photo", user.Photo);
-                    sqlCommand.Parameters.AddWithValue("@CountryId", user.CountryId);
-                    sqlCommand.Parameters.AddWithValue("@StateId", user.StateId);
-/*                    sqlCommand.Parameters.AddWithValue("@professional_skill", user.ProfessionalSkill);
-*/
-                    sqlConnection.Open();
+                    string query = "INSERT INTO users (FullName, Email, MOB_NO, DateOfBirth, Photo, CountryId, StateId, comm, atwup, dm, tm, sm, cr, lead, adapt) " +
+                                               "VALUES (@FullName, @Email, @MOB_NO, @DateOfBirth, @Photo, @CountryId, @StateId, @comm, @atwup, @dm, @tm, @sm, @cr, @lead, @adapt)";
+                    using (sqlConnection = new SqlConnection(conn))
+                    {
+                        sqlCommand = new SqlCommand(query, sqlConnection);
 
-                    sqlCommand.ExecuteNonQuery();
+                        sqlCommand.Parameters.AddWithValue("@FullName", user.FullName);
+                        sqlCommand.Parameters.AddWithValue("@Email", user.Email);
+                        sqlCommand.Parameters.AddWithValue("@MOB_NO", user.MobNo);
+                        sqlCommand.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
+                        sqlCommand.Parameters.AddWithValue("@Photo", user.Photo);
+                        sqlCommand.Parameters.AddWithValue("@CountryId", user.CountryId);
+                        sqlCommand.Parameters.AddWithValue("@StateId", user.StateId);
+                        sqlCommand.Parameters.AddWithValue("@comm", user.comm);
+                        sqlCommand.Parameters.AddWithValue("@atwup", user.atwup);
+                        sqlCommand.Parameters.AddWithValue("@dm", user.dm);
+                        sqlCommand.Parameters.AddWithValue("@tm", user.tm);
+                        sqlCommand.Parameters.AddWithValue("@sm", user.sm);
+                        sqlCommand.Parameters.AddWithValue("@cr", user.cr);
+                        sqlCommand.Parameters.AddWithValue("@lead", user.lead);
+                        sqlCommand.Parameters.AddWithValue("@adapt", user.adapt);
 
-                    sqlConnection.Close();
+                        sqlConnection.Open();
+
+                        sqlCommand.ExecuteNonQuery();
+
+                        sqlConnection.Close();
+                    }
+                    return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index");
+                else
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(user.ImageFile.FileName);
+                    string extension = Path.GetExtension(user.ImageFile.FileName);
+                    fileName += DateTime.Now.ToString("yymmssfff") + extension;
+                    user.Photo = "~/Content/images/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("~/Content/images/"), fileName);
+                    user.ImageFile.SaveAs(fileName);
+
+                    string query = $"UPDATE users SET FullName = @FullName, MOB_NO = @MOB_NO, DateOfBirth = @DateOfBirth, Photo = @Photo, CountryId = @CountryId, StateId = @StateId, comm = @comm, atwup = @atwup, dm = @dm, tm = @tm, sm = @sm, cr = @cr, lead = @lead, adapt = @adapt WHERE userId = {user.Id}";
+
+                    using (sqlConnection = new SqlConnection(conn))
+                    {
+                        sqlCommand = new SqlCommand(query, sqlConnection);
+
+                        sqlCommand.Parameters.AddWithValue("@FullName", user.FullName);
+                        sqlCommand.Parameters.AddWithValue("@Email", user.Email);
+                        sqlCommand.Parameters.AddWithValue("@MOB_NO", user.MobNo);
+                        sqlCommand.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
+                        sqlCommand.Parameters.AddWithValue("@Photo", user.Photo);
+                        sqlCommand.Parameters.AddWithValue("@CountryId", user.CountryId);
+                        sqlCommand.Parameters.AddWithValue("@StateId", user.StateId);
+                        sqlCommand.Parameters.AddWithValue("@comm", user.comm);
+                        sqlCommand.Parameters.AddWithValue("@atwup", user.atwup);
+                        sqlCommand.Parameters.AddWithValue("@dm", user.dm);
+                        sqlCommand.Parameters.AddWithValue("@tm", user.tm);
+                        sqlCommand.Parameters.AddWithValue("@sm", user.sm);
+                        sqlCommand.Parameters.AddWithValue("@cr", user.cr);
+                        sqlCommand.Parameters.AddWithValue("@lead", user.lead);
+                        sqlCommand.Parameters.AddWithValue("@adapt", user.adapt);
+
+                        sqlConnection.Open();
+
+                        sqlCommand.ExecuteNonQuery();
+
+                        sqlConnection.Close();
+                    }
+                    return RedirectToAction("Index");
+                }
             }
-            else
+            return View("Index");
+            
+        }
+
+
+        public ActionResult Delete(int id)
+        {
+            return RedirectToAction("Index");
+        }
+
+
+        public List<CountryModel> GetCountryList()
+        {
+            List<CountryModel> list = new List<CountryModel> ();
+
+            using (sqlConnection = new SqlConnection(conn))
             {
-                string fileName = Path.GetFileNameWithoutExtension(user.ImageFile.FileName);
-                string extension = Path.GetExtension(user.ImageFile.FileName);
-                fileName += DateTime.Now.ToString("yymmssfff") + extension;
-                user.Photo = "~/Content/images/" + fileName;
-                fileName = Path.Combine(Server.MapPath("~/Content/images/"), fileName);
-                user.ImageFile.SaveAs(fileName);
+                query = "SELECT * FROM countries;";
+                sqlCommand = new SqlCommand(query, sqlConnection);
 
-/*                query = $"UPDATE users SET fullName ='{user.FullName}', EMAIL = '{user.Email}', MOB_NO = '{user.MobNo}', DATEOFBIRTH = '02-06-2001', countryId = {user.CountryId}, stateId = {user.StateId}, professional_skill = '{user.ProfessionalSkill}' WHERE userId = {user.Id}";
-*/
-                using (sqlConnection = new SqlConnection(conn))
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable UserTable = new DataTable();
+                sqlDataAdapter.Fill(UserTable);
+
+                foreach (DataRow row in UserTable.Rows)
                 {
-                    sqlCommand = new SqlCommand(query, sqlConnection);
-
-                    sqlConnection.Open();
-
-                    sqlCommand.ExecuteNonQuery();
-
-                    sqlConnection.Close();
+                    CountryModel country = new CountryModel()
+                    {
+                        CountryId = Convert.ToInt32(row["countryId"]),
+                        CountryName = Convert.ToString(row["country_Name"])
+                    };
+                    list.Add(country);
                 }
-                return RedirectToAction("Index");
             }
+            return list;
+        }
+
+        public JsonResult GetStates(int countryId)
+        {
+            var states = GetStatesByCountry(countryId);
+            return Json(states, JsonRequestBehavior.AllowGet);
+        }
+
+        public List<StateModel> GetStatesByCountry(int countryId)
+        {
+            List<StateModel> states = new List<StateModel>();
+
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                query = $"SELECT * FROM states WHERE countryId = {countryId};";
+                sqlCommand = new SqlCommand(query, con);
+
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable UserTable = new DataTable();
+                sqlDataAdapter.Fill(UserTable);
+
+                foreach (DataRow row in UserTable.Rows)
+                {
+                    StateModel state = new StateModel()
+                    {
+                        StateId = Convert.ToInt32(row["stateId"]),
+                        StateName = Convert.ToString(row["state_Name"])
+                    };
+                    states.Add(state);
+                }
+            }
+
+            return states;
         }
     }
 }

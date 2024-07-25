@@ -1,82 +1,120 @@
-﻿@model MACHINE_TEST_PRACTICE.Models.UserModel 
+﻿@model MACHINE_TEST_PRACTICE.Models.UserModel
 
 @{
     ViewBag.Title = "Home Page";
 }
 
 <main>
-    @using (Html.BeginForm("AddOrUpdate", "Home",FormMethod.Post, new {enctype = "multipart/form-data"}))
+    @using (Html.BeginForm("AddOrUpdate", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.HiddenFor(model => model.Id)
         <section class="row" aria-labelledby="aspnetTitle">
             <h1 id="title" class="mb-5">USER DETAILS</h1>
             <h4 class="mb-2">User Form</h4>
         </section>
-
         <div class="row mb-2">
             <section class="col-md-4" aria-labelledby="gettingStartedTitle">
                 <label>Full Name: </label>
-                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control w-100" })
+                @Html.TextBoxFor(model => model.FullName, new { @class = "w-100 form-control" })
+                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
             </section>
             <section class="col-md-4" aria-labelledby="librariesTitle">
                 <label>Email: </label>
-                @Html.TextBoxFor(model => model.Email, new { @class = "form-control w-100" })
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
             </section>
             <section class="col-md-4" aria-labelledby="hostingTitle">
                 <label>Phone: </label>
                 @Html.TextBoxFor(model => model.MobNo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MobNo, "", new { @class = "text-danger" })
+
             </section>
         </div>
 
-        <div class="row mb-2">
+        <div class="row mb-3">
             <section class="col-md-4" aria-labelledby="gettingStartedTitle">
                 <label>Date of Birth: </label>
                 @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control", @type = "date" })
+                @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+
             </section>
             <section class="col-md-4" aria-labelledby="librariesTitle">
                 <label>Country: </label>
-                @Html.TextBoxFor(model => model.CountryId, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.CountryId, new SelectList(ViewBag.CountryList, "CountryId", "CountryName"), "-- Select Country --", new { @class = "form-control", @id = "CountryDropdown" })
+                @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+
             </section>
             <section class="col-md-4" aria-labelledby="hostingTitle">
                 <label>State: </label>
-                @Html.TextBoxFor(model => model.StateId, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.StateId, new SelectList(""), "-- Select State --", new { @class = "form-control", @id = "StateDropdown" })
+                @Html.ValidationMessageFor(model => model.StateId, "", new { @class = "text-danger" })
+
             </section>
         </div>
 
-        @*<div class="row mb-2">
-                <div class="col-2">
-                    <label>Professional Skills: </label>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-                            <label>Date of Birth: </label>
 
-                        </section>
-                        <section class="col-md-4" aria-labelledby="librariesTitle">
-                            <label>Country: </label>
-                            @Html.TextBoxFor(model => model.CountryId, new { @class = "form-control" })
-                        </section>
-                        <section class="col-md-4" aria-labelledby="hostingTitle">
-                            <label>State: </label>
-                            @Html.TextBoxFor(model => model.StateId, new { @class = "form-control" })
-                        </section>
-                    </div>
-                </div>
-            </div>*@
 
         <div class="row mb-2">
             <section class="col-md-4" aria-labelledby="gettingStartedTitle">
                 <label class="form-label">Upload Photo: </label>
-                @Html.TextBoxFor(model => model.ImageFile, new { @class = "form-control", @type = "file", @accept = "image/*", @name = "ImageFile"})
+                @Html.TextBoxFor(model => model.ImageFile, new { @class = "form-control", @type = "file", @accept = "image/*", @name = "ImageFile" })
+                @Html.ValidationMessageFor(model => model.ImageFile, "", new { @class = "text-danger" })
             </section>
-            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-                @*<label>Professional Skill: </label>
-                @Html.TextBoxFor(model => model.ProfessionalSkill, new { @class = "form-control" })*@
-            </section>
+
         </div>
+
         <div class="row mb-2">
-            <button class="btn btn-secondary" type="submit">Submit</button>
+            <div class="col-2">
+                <label>Professional Skills: </label>
+            </div>
+            <div class="col-10">
+                <div class="row">
+                    <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+                        @Html.CheckBoxFor(model => model.comm, new { @class = "form-check-input" })
+
+                        <label>Communication</label>
+                    </section>
+                    <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+                        @Html.CheckBoxFor(model => model.atwup, new { @class = "form-check-input" })
+                        <label>Ability to work under-pressure</label>
+                    </section>
+                    <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+                        @Html.CheckBoxFor(model => model.dm, new { @class = "form-check-input" })
+                        <label>Decision Making</label>
+                    </section>
+                    <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+                        @Html.CheckBoxFor(model => model.tm, new { @class = "form-check-input" })
+                        <label>Time Management</label>
+                    </section>
+                </div>
+                <div class="row">
+                    <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+                        @Html.CheckBoxFor(model => model.sm, new { @class = "form-check-input" })
+                        <label>Self-motivation</label>
+                    </section>
+                    <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+                        @Html.CheckBoxFor(model => model.cr, new { @class = "form-check-input" })
+                        <label>Conflict Resolution</label>
+                    </section>
+                    <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+                        @Html.CheckBoxFor(model => model.lead, new { @class = "form-check-input" })
+                        <label>Leadership</label>
+                    </section>
+                    <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+                        @Html.CheckBoxFor(model => model.adapt, new { @class = "form-check-input" })
+                        <label>Adaptability</label>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
+                <button class="btn btn-secondary" type="submit">Submit</button>
+            </div>
+            <div class="col-md-5"></div>
         </div>
     }
 
@@ -89,7 +127,7 @@
                     <th>Full Name</th>
                     <th>Email</th>
                     <th>Mobile No</th>
-                    <th>Date of Birth</th>
+                    <th>DOB</th>
                     <th>Country</th>
                     <th>State</th>
                     <th>Professional Skill</th>
@@ -155,3 +193,27 @@
     </div>
 
 </main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+    $(document).ready(function () {
+        $('#CountryDropdown').change(function () {
+            var countryId = $(this).val();
+            if (countryId != '') {
+                $.get("/Home/GetStates", { countryId: countryId }, function (data) {
+                    var items = '<option>-- Select State --</option>';
+                    $.each(data, function (i, state) {
+                        items += "<option value='" + state.StateId + "'>" + state.StateName + "</option>";
+                    });
+                    $('#StateDropdown').html(items);
+                });
+            } else {
+                $('#StateDropdown').html('<option>Select State</option>');
+            }
+        });
+    });
+</script>
+
+
