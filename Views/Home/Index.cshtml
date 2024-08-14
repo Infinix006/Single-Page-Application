@@ -15,7 +15,7 @@
         <div class="row mb-2">
             <section class="col-md-4" aria-labelledby="gettingStartedTitle">
                 <label>Full Name: </label>
-                @Html.TextBoxFor(model => model.FullName, new { @class = "w-100 form-control" })
+                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
             </section>
             <section class="col-md-4" aria-labelledby="librariesTitle">

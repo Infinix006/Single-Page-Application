@@ -11,20 +11,24 @@
       "RelativeMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|e:\\rupam\\github projects\\single-page-application-mvc-\\models\\statemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|solutionrelative:models\\statemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|e:\\rupam\\github projects\\single-page-application-mvc-\\models\\countrymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|solutionrelative:models\\countrymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|e:\\rupam\\github projects\\single-page-application-mvc-\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|solutionrelative:app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|solutionrelative:models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\models\\statemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|solutionrelative:models\\statemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\models\\countrymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6786681D-6C98-4BA1-96C7-F06BA64C9766}|MACHINE_TEST_PRACTICE.csproj|solutionrelative:models\\countrymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,24 +38,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "App_Start\\RouteConfig.cs",
+              "ToolTip": "E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "App_Start\\RouteConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T11:14:20.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "StateModel.cs",
               "DocumentMoniker": "E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\Models\\StateModel.cs",
               "RelativeDocumentMoniker": "Models\\StateModel.cs",
               "ToolTip": "E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\Models\\StateModel.cs",
               "RelativeToolTip": "Models\\StateModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T10:11:07.56Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-25T10:11:07.56Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "CountryModel.cs",
               "DocumentMoniker": "E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\Models\\CountryModel.cs",
               "RelativeDocumentMoniker": "Models\\CountryModel.cs",
@@ -59,8 +75,7 @@
               "RelativeToolTip": "Models\\CountryModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T10:11:04.702Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-25T10:11:04.702Z"
             },
             {
               "$type": "Document",
@@ -70,22 +85,23 @@
               "RelativeDocumentMoniker": "Models\\UserModel.cs",
               "ToolTip": "E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\Models\\UserModel.cs",
               "RelativeToolTip": "Models\\UserModel.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBUAAAAIAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAzwBUAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-21T18:58:25.916Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-21T12:20:10.186Z"
+              "WhenOpened": "2024-07-21T12:20:10.186Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -95,7 +111,7 @@
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
               "ToolTip": "E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAMIAAAAAAAAAAAAAAMgAAAAEAAAA",
+              "ViewState": "AQIAAKcAAAAAAAAAAAAAAAkAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-19T10:09:27.561Z",
               "EditorCaption": ""
@@ -108,7 +124,7 @@
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
               "ToolTip": "E:\\Rupam\\GitHub Projects\\Single-Page-Application-MVC-\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAwPcAAAA4AAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAkwBgAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-19T10:08:53.488Z",
               "EditorCaption": ""
